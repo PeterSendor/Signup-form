@@ -104,7 +104,7 @@ function LoginContainer (props) {
     let divStyle1 = props.currentStep > 1 ? "stepsActive" : "steps"
     let divStyle2 = props.currentStep > 2 ? "stepsActive" : "steps"
     let divStyle3 = props.currentStep > 3 ? "stepsActive" : "steps"
-    let divStyle4 = props.currentStep > 4 ? "stepsActive" : "steps"
+    let divStyle4 = props.currentStep === 4 ? "stepsActive" : "steps"
   return (
     <div>
       <div className="loginContainer">
@@ -142,7 +142,10 @@ function LoginContainer (props) {
               dob = {props.dob}
               uploadOnClick = {props.uploadOnClick}
             
-            /> : <div></div>}
+            /> : 
+            
+            props.currentStep === 4 ? 
+            <FourthStepLoginSet /> :  <div></div>}
         </div>
       </div>
       <MessageBox 
